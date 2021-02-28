@@ -7,6 +7,7 @@ package controllers;
 
 import java.util.List;
 import models.Dept;
+import models.Emp;
 import repositories.RepositoryDepartamentos;
 import repositories.RepositoryEmp;
 
@@ -33,8 +34,18 @@ public class Controller03EmpleadosDepartamento {
         return html;
     }
     
-    public String getEmpleadosDepartamentos(int id) {
+    public String getEmpleadosDepartamento(int id) {
         List<Emp> empleados = this.repoemp.getEmpleadosDepartamento(id);
-        ... basta ya. Falta código.
+        String html = "";
+        if(empleados != null) {
+            html += "<ul>";
+            for(Emp e: empleados) {
+                html += "<li>" + e.getApellido() + ", " + e.getOficio() + ", " + e.getEmpNo() + "</li>";
+            }
+            html += "</ul>";
+        } else {
+            html += "<h2 style='color:red'> No hay empleados asignados al departamento " + id + "</h2>";
+        }
+        return html;
     }
 }

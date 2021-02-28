@@ -28,6 +28,10 @@ public class RepositoryHospital {
         this.session.beginTransaction();
         String z_hql = "from Hospital as hospital";
         Query query = this.session.createQuery(z_hql);
-        return query.list();
+        if(query.list().isEmpty()) {
+            return null;
+        } else {
+            return query.list();
+        }
     }
 }

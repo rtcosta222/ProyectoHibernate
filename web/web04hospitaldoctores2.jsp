@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                    <%=controllerdoctor.getDoctores(z_idhosp)%>
+                    <%=controllerdoctor.getDoctoresHospital(z_idhosp)%>
             </tbody>
         </table>    
         <% } 

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="controller" 
-             class="controllers.Controller3EmpleadosDepartamento" 
+             class="controllers.Controller03EmpleadosDepartamento" 
              scope="request"/>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Empleados por Dept</h1>
-        <form method="post">
+        <form method="post" action="web03empleadosdept.jsp">
             <label>Seleccione departamento</label>
             <select name="selectdepartamento">
                 <%=controller.getOptionsDepartamentos()%>

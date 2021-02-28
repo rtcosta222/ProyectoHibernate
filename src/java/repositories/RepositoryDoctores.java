@@ -26,8 +26,11 @@ public class RepositoryDoctores {
     public List<Doctor> getDoctores(int idHosp) {
         this.session.beginTransaction();
         String z_hql = "from Doctor as doctor where hospitalCod=" + idHosp;
-        Query query = this.session.createQuery(z_hql);
-        chequear que los datos existen. Devolver null cuando no los hay.
-        return query.list();
+        Query query = this.session.createQuery(z_hql);    
+        if(query.list().isEmpty()) {
+            return null;
+        } else {
+            return query.list();
+        }
     }
 }

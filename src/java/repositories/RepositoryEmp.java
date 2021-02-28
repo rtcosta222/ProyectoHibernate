@@ -25,11 +25,12 @@ public class RepositoryEmp {
     public List<Emp> getEmpleados() {
         this.session.beginTransaction();
         String z_hql = "from Emp as emp";
-        Query q = this.session.createQuery(z_hql);
-        if (q.list().isEmpty()) {
+        Query z_q = this.session.createQuery(z_hql);
+        if (z_q.list().isEmpty()) {
             return null;
-        } else {
-            return (List<Emp>)q.list();
+        } else { // El casting no es necesario 
+//            return (List<Emp>)q.list();
+            return z_q.list();
         }
     }
 
@@ -47,7 +48,7 @@ public class RepositoryEmp {
     
     public List<Emp> getEmpleadosDepartamento(int iddept) {
         this.session.beginTransaction();
-        String z_hql = "from Emp as emp where emp.deptno=" + iddept;
+        String z_hql = "from Emp as emp where emp.deptNo=" + iddept;
         Query query = this.session.createQuery(z_hql);
         if (query.list().isEmpty()) {
             return null;

@@ -15,7 +15,7 @@
     <body>
         <h1>Buscador de Empleados</h1>
         <form method="post">
-            <label>Introduzca oficio</label>
+            <label>Introduzca oficio: </label>
             <input type="text" name="cajaoficio" placeholder="Oficio"/>
             <button type="submit">Buscar empleados></button>
         </form>

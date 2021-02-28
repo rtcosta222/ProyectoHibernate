@@ -23,9 +23,17 @@ public class RepositoryDepartamentos {
     }
     
     public List<Dept> getDepartamentos() {
+        // Transaction
         this.session.beginTransaction();
+        // hql
         String z_hql = "from Dept as dept";
+        // Ejecución
         Query query = this.session.createQuery(z_hql);
-        return query.list();
+        // Return result
+        if(query.list().isEmpty()) {
+            return null;
+        } else {
+            return query.list();
+        }
     }
 }

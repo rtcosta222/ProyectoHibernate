@@ -24,7 +24,7 @@ public class Controller04HospitalDoctores {
         this.repodoct = new RepositoryDoctores();
     }
     
-    public String getHospitales() { chequear que hay hospitales
+    public String getHospitales() {
         List<Hospital> hospitales = this.repohosp.getHospitales();
         String html = "<tr>";
         for(Hospital h: hospitales) {
@@ -33,12 +33,12 @@ public class Controller04HospitalDoctores {
             html += "<td>" + h.getDireccion() + "</td>";
             html += "<td>" + h.getTelefono() + "</td>";
             html += "<td>" + h.getNumCama() + "</td>";
-            html += "<td><a href='web04doctoreshospital.jsp?idhosp=" + h.getHospitalCod() + "'>Ver doctores</a></td>";
+            html += "<td><a href='web04hospitaldoctores2.jsp?idhosp=" + h.getHospitalCod() + "'>Ver doctores</a></td>";
             html +="</tr>";
         }
         return html;
     }
-        public String getDoctores(int idhosp) { chequear que hay doctores
+        public String getDoctoresHospital(int idhosp) {
         List<Doctor> doctores = this.repodoct.getDoctores(idhosp);
         String html = "<tr>";
         for(Doctor d: doctores) {
