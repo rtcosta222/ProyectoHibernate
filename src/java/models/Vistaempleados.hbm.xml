@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-mar-2021 18:27:18 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Vistaempleados" table="VISTAEMPLEADOS" schema="SYSTEM" optimistic-lock="version">
+        <composite-id name="id" class="models.VistaempleadosId">
+            <key-property name="apellido" type="string">
+                <column name="APELLIDO" length="50" />
+            </key-property>
+            <key-property name="anual" type="big_decimal">
+                <column name="ANUAL" precision="0" />
+            </key-property>
+            <key-property name="oficio" type="string">
+                <column name="OFICIO" length="50" />
+            </key-property>
+            <key-property name="fechaalta" type="string">
+                <column name="FECHAALTA" length="58" />
+            </key-property>
+            <key-property name="departamento" type="string">
+                <column name="DEPARTAMENTO" length="50" />
+            </key-property>
+            <key-property name="localidad" type="string">
+                <column name="LOCALIDAD" length="50" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

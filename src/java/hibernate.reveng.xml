@@ -45,4 +45,5 @@ Contributor(s):
   <table-filter match-name="EMP"/>
   <table-filter match-name="DOCTOR"/>
   <table-filter match-name="HOSPITAL"/>
+  <table-filter match-name="VISTAEMPLEADOS"/>
 </hibernate-reverse-engineering>

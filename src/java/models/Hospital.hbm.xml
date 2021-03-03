@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 25-feb-2021 18:08:03 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-mar-2021 18:27:18 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class name="models.Hospital" optimistic-lock="version" schema="SYSTEM" table="HOSPITAL">
-    <id name="hospitalCod" type="int">
-      <column name="HOSPITAL_COD" precision="9" scale="0"/>
-      <generator class="assigned"/>
-    </id>
-    <property name="nombre" type="string">
-      <column length="50" name="NOMBRE"/>
-    </property>
-    <property name="direccion" type="string">
-      <column length="20" name="DIRECCION"/>
-    </property>
-    <property name="telefono" type="string">
-      <column length="9" name="TELEFONO"/>
-    </property>
-    <property name="numCama" type="java.lang.Integer">
-      <column name="NUM_CAMA" precision="9" scale="0"/>
-    </property>
-  </class>
+    <class name="models.Hospital" table="HOSPITAL" schema="SYSTEM">
+        <id name="hospitalCod" type="int">
+            <column name="HOSPITAL_COD" precision="9" scale="0" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="50" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="20" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="9" />
+        </property>
+        <property name="numCama" type="java.lang.Integer">
+            <column name="NUM_CAMA" precision="9" scale="0" />
+        </property>
+    </class>
 </hibernate-mapping>

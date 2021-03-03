@@ -7,41 +7,35 @@ package repositories;
 
 import java.util.List;
 import models.Dept;
-import org.hibernate.Session;
 import models.HibernateUtil;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 /**
  *
  * @author lscar
  */
-public class RepositoryDepartamentos {
+public class Repository01Departamentos {
+
     Session session;
-    // La transaccion debe ser unica al igual que la sesion.
     Transaction transaction;
-    
-    public RepositoryDepartamentos() {
+
+    public Repository01Departamentos() {
         this.session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
     
-    private void iniciarTransaccion() {
+    private void initTransaccion() {
         if(this.session.isOpen() == false) {
-            // Session is closed
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
         }
         this.transaction = this.session.beginTransaction();
     }
     
-    public List<Dept> getDepartamentos() {
-        // Transaction
-//        this.session.beginTransaction();
-        this.iniciarTransaccion();
-        // hql
+    public List<Dept> getTablaDepartamentos() {
+        this.initTransaccion();
         String z_hql = "from Dept as dept";
-        // Ejecución
         Query query = this.session.createQuery(z_hql);
-        // Return result
         if(query.list().isEmpty()) {
             return null;
         } else {
@@ -49,26 +43,26 @@ public class RepositoryDepartamentos {
         }
     }
     
-    public void insertarDepartamento(int numero, String nombre, String localidad) {
-        this.iniciarTransaccion();
-        Dept dept = new Dept(numero, nombre, localidad);
+    public void insertarDepartamento(int dnum, String dnom, String dloc) {
+        this.initTransaccion();
+        Dept dept = new Dept(dnum, dnom, dloc);
         this.session.save(dept);
         this.transaction.commit();
     }
     
-    public void eliminarDepartamento(int num) {
-        this.iniciarTransaccion();
-        Dept dept = (Dept)this.session.load(Dept.class, num);
-        this.session.delete(dept);
+    public void modificarDepartamento(int dnum, String dnom, String dloc) {
+        this.initTransaccion();
+        Dept dept = (Dept) this.session.load(Dept.class, dnum);
+        dept.setDnombre(dnom);
+        dept.setLoc(dloc);
+        this.session.update(dept);
         this.transaction.commit();
     }
-       
-    public void modificarDepartamento(int numero, String nombre, String localidad) {
-        this.iniciarTransaccion();
-        Dept dept = (Dept)this.session.load(Dept.class, numero);
-        dept.setDnombre(nombre);
-        dept.setLoc(localidad);
-        this.session.update(dept);
+    
+    public void eliminarDepartamento(int dnum) {
+        this.initTransaccion();
+        Dept dept = (Dept) this.session.load(Dept.class, dnum);
+        this.session.delete(dept);
         this.transaction.commit();
     }
 }
