@@ -18,17 +18,43 @@
                    on plantilla.hospital_cod = hospital.hospital_cod;
                    select * from vistaplantilla
 --%>
-falta ....
-<jsp:useBean
-    
+
+<jsp:useBean id="controller" class="controllers.Controller08VistaPlantilla" scope="request"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Hibernate - PLSQL Views</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Plantilla por hospital:</h1>
+        <form method="get">
+            <label>Introduzca hospital: </label><br/>
+            <input type="text" name="hnom" placeholder="Nombre hospital"/>
+            <button type="submit">Buscar</button>
+        </form>
+        <hr/>
+        <table>
+            <thead>
+                <tr>
+                    <th>Apellido</th>
+                    <th>Función</th>
+                    <th>Salario</th>
+                    <th>Nombre Hospital</th>
+                    <th>Teléfono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%  String hnom = request.getParameter("hnom");
+                    if (hnom != null) {
+                %>      <%=controller.getVistaPlantillaHospital(hnom)%>
+                <%  } else {
+                %>      <%=controller.getVistaPlantillaHospitales()%>
+                <%  }
+                %>
+            </tbody>
+        </table>
     </body>
 </html>
