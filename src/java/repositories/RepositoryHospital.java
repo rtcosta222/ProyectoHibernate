@@ -6,7 +6,6 @@
 package repositories;
 
 import java.util.List;
-import models.Dept;
 import models.HibernateUtil;
 import models.Hospital;
 import org.hibernate.Query;

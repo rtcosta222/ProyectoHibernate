@@ -8,7 +8,7 @@ package repositories;
 import java.util.ArrayList;
 import java.util.List;
 import models.HibernateUtil;
-import models.Plantilla;
+import models.Hospital;
 import models.Vistaplantilla;
 import models.VistaplantillaId;
 import org.hibernate.Query;
@@ -20,6 +20,7 @@ import org.hibernate.Transaction;
  * @author lscar
  */
 public class RepositoryVistaPlantilla {
+
     Session session;
     Transaction transaction;
     
@@ -39,6 +40,8 @@ public class RepositoryVistaPlantilla {
         String z_hql = "from Vistaplantilla as vista";
         Query query = this.session.createQuery(z_hql);
         List<Vistaplantilla> listaplantilla = query.list();
+        this.session.close();
+
         ArrayList<VistaplantillaId> plantilla = new ArrayList<>();
         for(Vistaplantilla v: listaplantilla) {
             VistaplantillaId plan = v.getId();
@@ -52,12 +55,23 @@ public class RepositoryVistaPlantilla {
         String z_hql = "from Vistaplantilla as vista where lower(vista.id.nombre)='" + hnom.toLowerCase() + "'";
         Query query = this.session.createQuery(z_hql);
         List<Vistaplantilla> listaplantilla = query.list();
+        this.session.close();
+        
         ArrayList<VistaplantillaId> plantilla = new ArrayList<>();
         for(Vistaplantilla v: listaplantilla) {
             VistaplantillaId plan = v.getId();
             plantilla.add(plan);
         }
         return plantilla;
+    }
+    
+    public List<Hospital> getHospitales(){
+        this.initTransaccion();
+        String z_hql = "from Hospital as hospital";
+        Query query = this.session.createQuery(z_hql);
+        List<Hospital> hospitales = query.list();
+        this.session.close();
+        return hospitales;
     }
 }
 

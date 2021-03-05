@@ -31,8 +31,10 @@
     <body>
         <h1>Plantilla por hospital:</h1>
         <form method="get">
-            <label>Introduzca hospital: </label><br/>
-            <input type="text" name="hnom" placeholder="Nombre hospital"/>
+            <label>Introduzca hospital: </label>
+            <select name="hnom" placeholder="Nombre hospital"/>
+                <%=controller.getSelectHospitales()%>
+            </select>
             <button type="submit">Buscar plantilla</button>
         </form>
         <hr/>
