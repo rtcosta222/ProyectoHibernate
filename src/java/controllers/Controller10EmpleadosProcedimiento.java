@@ -39,7 +39,7 @@ public class Controller10EmpleadosProcedimiento {
         return html;
     }
     
-    public void updateSalarioEmpleados(int deptno,int incr) {
-        this.repo.updateSalarioEmpleados(deptno,incr);
+    public void updateSalarioEmpleados(int deptno, int incr) {
+        this.repo.updateSalarioEmpleados(deptno, incr);
     }
 }

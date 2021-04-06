@@ -27,7 +27,7 @@ public class RepositoryDepartamentos {
     
     private void iniciarTransaccion() {
         if(this.session.isOpen() == false) {
-            // Session is closed
+            // Session is closed. La volvemos a abrir:
             this.session = HibernateUtil.getSessionFactory().getCurrentSession();
         }
         this.transaction = this.session.beginTransaction();

@@ -3,6 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/* PLSQL Proc.: 
+        create or replace procedure Pr_updatesalarioempleados(p_deptno emp.dept_no%type,
+                                                              p_incr emp.salario%type)
+        as
+        begin
+            update emp set salario=salario+p_incr where dept_no=p_deptno;
+        end;
+*/
+
 package repositories;
 
 import java.util.List;

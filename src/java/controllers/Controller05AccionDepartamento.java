@@ -7,7 +7,6 @@ package controllers;
 
 import java.util.List;
 import models.Dept;
-import models.Hospital;
 import repositories.RepositoryDepartamentos;
 
 /**
